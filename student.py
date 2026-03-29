@@ -1,4 +1,3 @@
-cat <<EOF > student.py
 class Student:
     def __init__(self, full_name, student_id):
         self.full_name = full_name
@@ -24,4 +23,3 @@ class Student:
 
     def __str__(self):
         return f"Student: {self.full_name} (ID: {self.student_id})"
-EOF
