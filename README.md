@@ -1,4 +1,4 @@
-# Student Grade Tracker — Group 15 (GCGO)
+# Student Grade Tracker  Group 15 (GCGO)
 
 ALU Peer Learning Days — Python Project
 
@@ -161,15 +161,15 @@ You can also export your report to a `.txt` file.
 
 | File                | Purpose |
 |---------------------|---------|
-| `main.py`           | Entry point — runs the interactive menu and all user flows |
+| `main.py`           | Entry point  runs the interactive menu and all user flows |
 | `auth.py`           | Password login for Head Teacher and Subject Teachers |
 | `storage.py`        | Reads and writes all data to Aiven MySQL |
 | `setup_db.py`       | Creates database tables if they do not exist |
-| `student.py`        | `Student` class — holds grades and validates IDs |
-| `cohort.py`         | `Cohort` class — groups students together |
-| `grade.py`          | `GradeCategory` and `CategoryManager` — define and weight categories |
+| `student.py`        | `Student` class  holds grades and validates IDs |
+| `cohort.py`         | `Cohort` class  groups students together |
+| `grade.py`          | `GradeCategory` and `CategoryManager` : define and weight categories |
 | `calculator.py`     | Weighted averages, letter grades, and GPA calculations |
 | `reports.py`        | All report views and the class overview table |
 | `populate_sample.py`| Script to insert sample data for testing |
-| `.env`              | **Your credentials — never commit this file** |
+| `.env`              | **Your credentials  never commit this file** |
 | `.gitignore`        | Excludes `.env` and other generated files from Git |
