@@ -22,10 +22,7 @@ class GradeTracker:
         self.storage          = Storage()
         self.auth             = Auth()
 
-    # =========================================================================
     # STARTUP
-    # =========================================================================
-
     def run(self):
         setup_db()   # Create all DB tables if they don't exist yet
         loaded_cohorts, custom_categories = self.storage.load()
@@ -69,10 +66,7 @@ class GradeTracker:
             else:
                 print("\n  [!] Please enter 1, 2, 3 or 4.")
 
-    # =========================================================================
     # HEAD TEACHER FLOW  — full access
-    # =========================================================================
-
     def _head_teacher_flow(self):
         """
         Head teacher selects or creates a cohort, then enters the full menu.
@@ -153,10 +147,7 @@ class GradeTracker:
             else:
                 print("\n  [!] Please enter a number between 1 and 6.")
 
-    # =========================================================================
     # SUBJECT TEACHER FLOW  — restricted to their subject
-    # =========================================================================
-
     def _subject_teacher_flow(self, teacher):
         """
         Subject teacher picks an existing cohort (cannot create one),
@@ -208,10 +199,7 @@ class GradeTracker:
             else:
                 print("\n  [!] Please enter a number between 1 and 6.")
 
-    # =========================================================================
     # STUDENT SELF-VIEW FLOW
-    # =========================================================================
-
     def _student_login_flow(self):
         student_id = input("\n  Enter your Student ID: ").strip()
         found = None
@@ -229,10 +217,7 @@ class GradeTracker:
             print(f"\n  [!] No student found with ID '{student_id}'.")
             print("      Please check your ID and try again.")
 
-    # =========================================================================
     # COHORT PICKER FOR OVERVIEW  — head teacher chooses any cohort to inspect
-    # =========================================================================
-
     def _pick_cohort_for_overview(self):
         """Shows all cohorts and returns the one the head teacher picks, or None."""
         if not self.cohorts:
@@ -261,10 +246,7 @@ class GradeTracker:
             print("  [!] Invalid input.")
         return None
 
-    # =========================================================================
     # COHORT SELECTION  (can_create=True for head teacher, False for subject teacher)
-    # =========================================================================
-
     def _select_or_create_cohort(self, can_create=True):
         while True:
             print("\n" + "=" * 44)
@@ -316,10 +298,7 @@ class GradeTracker:
             except ValueError:
                 print("  [!] Invalid input.")
 
-    # =========================================================================
     # ADD STUDENT  (loop until 'done')
-    # =========================================================================
-
     def _add_student(self):
         print("\n  --- ADD STUDENTS ---")
         print("  Type 'done' as the name when you are finished adding students.")
@@ -352,12 +331,9 @@ class GradeTracker:
             added_count += 1
             print(f"  [✓] Added: {full_name} (ID: {student_id})  —  {added_count} added so far.")
 
-    # =========================================================================
     # LOG GRADE
     # fixed_subject=None  → head teacher picks any subject
     # fixed_subject="X"   → subject teacher locked to subject X
-    # =========================================================================
-
     def _log_grade(self, fixed_subject=None):
         print("\n  --- LOG GRADES ---")
 
@@ -365,7 +341,7 @@ class GradeTracker:
             print("  [!] No students in this cohort yet. Add students first.")
             return
 
-        # ── Subject selection ────────────────────────────────────────────────
+        # Subject selection
         if fixed_subject is not None:
             # Subject teacher — no choice, their subject is fixed
             subject = fixed_subject
@@ -386,7 +362,7 @@ class GradeTracker:
                 print("  [!] Subject name cannot be empty.")
                 return
 
-        # ── Category selection ───────────────────────────────────────────────
+        # Category selection
         print("\n  Available grade categories:")
         self.category_manager.display_categories()
 
@@ -412,7 +388,7 @@ class GradeTracker:
                 print(f"  [!] '{cat_input}' is not a valid category.")
                 return
 
-        # ── Enter scores ─────────────────────────────────────────────────────
+        # Enter scores
         print(f"\n  Subject  : {subject}")
         print(f"  Category : {category}")
         print(f"  Students : {self.current_cohort.get_student_count()}")
@@ -454,10 +430,7 @@ class GradeTracker:
         print(f"  Graded   : {graded_count}   Skipped: {skipped_count}")
         print("=" * 45)
 
-    # =========================================================================
     # VIEW STUDENT REPORT
-    # =========================================================================
-
     def _view_student_report(self):
         print("\n  --- VIEW STUDENT REPORT ---")
         student_id = input("  Enter student ID: ").strip()
@@ -474,10 +447,7 @@ class GradeTracker:
             self.report_generator.export_report_to_file(
                 student, self.category_manager, self.calculator)
 
-    # =========================================================================
     # MANAGE SUBJECT TEACHERS  (head teacher only)
-    # =========================================================================
-
     def _manage_teachers(self):
         while True:
             print("\n" + "=" * 44)
@@ -547,10 +517,7 @@ class GradeTracker:
         else:
             print(f"  [!] No teacher found with username '{username}'.")
 
-    # =========================================================================
     # MANAGE GRADE CATEGORIES  (head teacher only)
-    # =========================================================================
-
     def _manage_categories(self):
         while True:
             print("\n  --- MANAGE GRADE CATEGORIES ---")

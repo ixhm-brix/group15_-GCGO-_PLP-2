@@ -37,10 +37,7 @@ class Storage:
             args["ssl_verify_cert"] = False
         return mysql.connector.connect(**args)
 
-    # ------------------------------------------------------------------
     # SAVE
-    # ------------------------------------------------------------------
-
     def save(self, cohorts_dict, category_manager):
         conn   = self.get_connection()
         cursor = conn.cursor()
@@ -88,10 +85,7 @@ class Storage:
             cursor.close()
             conn.close()
 
-    # ------------------------------------------------------------------
     # LOAD
-    # ------------------------------------------------------------------
-
     def load(self):
         """Returns (cohorts_dict, custom_categories_list)."""
         conn   = self.get_connection()
@@ -131,10 +125,7 @@ class Storage:
             cursor.close()
             conn.close()
 
-    # ------------------------------------------------------------------
     # TEACHER MANAGEMENT
-    # ------------------------------------------------------------------
-
     def get_teacher_by_password(self, password):
         conn   = self.get_connection()
         cursor = conn.cursor()
@@ -200,10 +191,7 @@ class Storage:
             cursor.close()
             conn.close()
 
-    # ------------------------------------------------------------------
     # BACKUP / HEALTH CHECK
-    # ------------------------------------------------------------------
-
     def backup(self):
         conn   = self.get_connection()
         cursor = conn.cursor()

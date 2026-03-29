@@ -12,10 +12,7 @@ class Auth:
     def __init__(self):
         self._admin_password = os.environ.get("ADMIN_PASSWORD", "admin123")
 
-    # =========================================================================
     # HEAD TEACHER LOGIN
-    # =========================================================================
-
     def login_head_teacher(self):
         """Password-only login for the head teacher."""
         print("\n  --- HEAD TEACHER LOGIN ---")
@@ -38,10 +35,7 @@ class Auth:
 
         return False
 
-    # =========================================================================
     # SUBJECT TEACHER LOGIN
-    # =========================================================================
-
     def login_subject_teacher(self, storage):
         """
         Password-only login for subject teachers.

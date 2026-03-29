@@ -1,12 +1,3 @@
-# =============================================================================
-# FILE: calculator.py
-# PURPOSE:
-#   Handles all grade-related calculations:
-#     - Weighted averages (overall and per subject)
-#     - Letter grade conversion (A–F)
-#     - GPA conversion (4.0 scale)
-# =============================================================================
-
 
 class GradeCalculator:
     """Utility class for grade calculations (stateless)."""
@@ -14,9 +5,8 @@ class GradeCalculator:
     def __init__(self):
         pass  # No internal state required
 
-    # -------------------------------------------------------------------------
+ 
     # Overall Weighted Average
-    # -------------------------------------------------------------------------
     def calculate_weighted_average(self, grades_dict, category_manager):
         """
         Computes weighted average across all subjects.
@@ -43,9 +33,7 @@ class GradeCalculator:
         # Avoid division by zero if no valid grades exist
         return weighted_total / weight_used if weight_used else 0.0
 
-    # -------------------------------------------------------------------------
     # Single Subject Average
-    # -------------------------------------------------------------------------
     def get_subject_average(self, subject_grades, category_manager):
         """
         Computes weighted average for a single subject.
@@ -70,9 +58,7 @@ class GradeCalculator:
 
         return weighted_total / weight_used if weight_used else 0.0
 
-    # -------------------------------------------------------------------------
     # Letter Grade Conversion
-    # -------------------------------------------------------------------------
     def get_letter_grade(self, average):
         """
         Converts numeric score to letter grade.
@@ -88,9 +74,7 @@ class GradeCalculator:
             return "D"
         return "F"
 
-    # -------------------------------------------------------------------------
     # GPA Conversion (4.0 Scale)
-    # -------------------------------------------------------------------------
     def get_gpa(self, average):
         """
         Converts numeric score to GPA.

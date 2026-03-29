@@ -20,7 +20,7 @@ from grade import CategoryManager
 
 random.seed(42)   # fixed seed — same scores every run
 
-# ── Subject teachers ───────────────────────────────────────────────────────────
+# Subject teachers
 # Each entry: (full_name, username, password, subject)
 # Password is all they need to log in.
 
@@ -31,7 +31,7 @@ TEACHERS = [
     ("Ms. Diane Mukamana",        "diane",     "english2025", "English Communication"),
 ]
 
-# ── Cohorts and students ───────────────────────────────────────────────────────
+# Cohorts and students
 
 COHORT_DATA = {
     "2025-Cohort-A": [
